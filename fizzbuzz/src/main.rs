@@ -11,3 +11,17 @@ fn main() {
         }
     }
 }
+
+fn fizzbuzz(number: i32) -> String {
+    "Fizz".to_string()
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn print_fizz() {
+        assert_eq!(fizzbuzz(3), "Fizz");
+    }
+}
