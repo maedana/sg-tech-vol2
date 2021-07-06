@@ -1,14 +1,6 @@
 fn main() {
     for i in 1..=20 {
-        if i % 3 == 0 && i % 5 == 0 {
-            println!("FizzBuzz")
-        } else if i % 3 == 0 {
-            println!("Fizz")
-        } else if i % 5 == 0 {
-            println!("Buzz")
-        } else {
-            println!("{}", i)
-        }
+        println!("{}", fizzbuzz(i));
     }
 }
 
@@ -19,7 +11,12 @@ fn fizzbuzz(number: i32) -> String {
     if number % 3 == 0 {
         return "Fizz".to_string();
     }
-    return "Buzz".to_string();
+
+    if number % 5 == 0 {
+        return "Buzz".to_string();
+    }
+
+    return format!("{}", number);
 }
 
 #[cfg(test)]
@@ -39,5 +36,10 @@ mod tests {
     #[test]
     fn print_fizzbuzz() {
         assert_eq!(fizzbuzz(15), "FizzBuzz");
+    }
+
+    #[test]
+    fn print_number() {
+        assert_eq!(fizzbuzz(1), "1");
     }
 }
